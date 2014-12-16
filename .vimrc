@@ -3,10 +3,10 @@ execute pathogen#infect()
 
 syntax enable
 set t_Co=256
-set background=light
-colorscheme solarized
-"set background=dark
-"colorscheme Tomorrow-Night
+"set background=light
+"colorscheme solarized
+set background=dark
+colorscheme Tomorrow-Night
 
 let mapleader=';'
 
