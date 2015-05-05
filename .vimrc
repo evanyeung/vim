@@ -15,7 +15,9 @@ set ruler
 set nowrap
 set hidden
 
-set backspace=2 " make backspace work like most other apps"
+set cursorline " highlight the line the cursor is on
+
+set backspace=2 " make backspace work like most other apps
 
 " used for autoindenting. filetype pl... sets indent for language specific
 set autoindent
