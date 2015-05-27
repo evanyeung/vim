@@ -20,4 +20,9 @@ git clone git://github.com/altercation/vim-colors-solarized.git ./vim-colors-sol
 git clone https://github.com/jistr/vim-nerdtree-tabs.git ./vim-nerdtree-tabs
 git clone https://github.com/honza/vim-snippets.git ./vim-snippets
 git clone https://github.com/Valloric/YouCompleteMe.git ./YouCompleteMe # NEED TO RUN install.sh
+
+# LESS.js syntax support
+git clone https://github.com/groenewege/vim-less ./vim-less
+# Jade syntax support
+git clone git://github.com/digitaltoad/vim-jade.git ./vim-jade
 ```
