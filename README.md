@@ -30,6 +30,6 @@ git clone https://github.com/groenewege/vim-less ./vim-less
 # Jade syntax support
 git clone git://github.com/digitaltoad/vim-jade.git ./vim-jade
 
-# to use ag in CtrlP, ag/"the silver searcher" must be install
+# to use ag in CtrlP, ag/"the silver searcher" must be installed
 # e.g. brew install the_silver_searcher
 ```
