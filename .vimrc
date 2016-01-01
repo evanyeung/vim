@@ -1,14 +1,17 @@
 " for pathogen package manager
 execute pathogen#infect()
 
+" used for autoindenting. filetype pl... sets indent for language specific
+set autoindent
+filetype plugin indent on
+
 " colors
 syntax enable
 set t_Co=256
-"set background=light
-"colorscheme solarized
-let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
+"colorscheme solarized
 "colorscheme Tomorrow-Night-Eighties
+let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-ocean
 
 " set leader to something easy to hit
@@ -30,16 +33,18 @@ set cursorline  " highlight current line
 set backspace=2 " make backspace work like most other apps
 set incsearch   " move cursor to next string while typing in search
 
-" used for autoindenting. filetype pl... sets indent for language specific
-set autoindent
-filetype plugin indent on
+" show unwanted whitespace
+set list
+set listchars=trail:~,tab:>~
+nmap <leader>w :set list!<CR> " toggle whitespace easily
+let &colorcolumn="81" " highlight 81 char col
 
 " tab
-set tabstop=4      " sets the width of the tab to 4
+set tabstop=4     " sets the width of the tab to 4
 set shiftwidth=4
 set softtabstop=4
-set smarttab  " use spaces instead of tabs at beginning of line
-set expandtab " use spaces instead of tabs
+set smarttab      " use spaces instead of tabs at beginning of line
+set expandtab     " use spaces instead of tabs
 " toggle expandtab
 nmap <leader>t :set expandtab!<CR>
 
@@ -59,14 +64,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" show unwanted whitespace
-set list
-set listchars=trail:~,tab:>~
-nmap <leader>w :set list!<CR> " toggle whitespace easily
-let &colorcolumn="101" " highlight 101 char col
+" save and repeat last command (useful for running scripts)
+nmap <leader>r :w<CR>@:
 
 " NERDTree settings
 let NERDTreeQuitOnOpen = 0
+let g:NERDTreeWinSize = 20
 command NT NERDTree
 map <Leader>n <plug>NERDTreeMirrorToggle<CR>
 
@@ -116,3 +119,15 @@ let g:UltiSnipsSnippetDirectories=['UltiSnips', 'vim-snippets/UltiSnips']
 
 " Easymotion
 nmap f <Plug>(easymotion-prefix)
+set tabstop=4      " sets the width of the tab to 4
+
+" vim-markdown
+let g:vim_markdown_folding_disabled=1
+
+" Pencil
+let g:pencil#wrapModeDefault = 'soft'
+augroup pencil
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init()
+    autocmd FileType text         call pencil#init()
+augroup END
