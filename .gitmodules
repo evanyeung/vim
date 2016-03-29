@@ -64,3 +64,6 @@
 [submodule "bundle/vim-pencil"]
 	path = bundle/vim-pencil
 	url = https://github.com/reedes/vim-pencil.git
+[submodule "bundle/tmuxline.vim"]
+	path = bundle/tmuxline.vim
+	url = https://github.com/edkolev/tmuxline.vim.git
