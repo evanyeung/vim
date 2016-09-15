@@ -3,7 +3,9 @@ Current vim config and plugins
 
 To install all plugins:
 ```
-git clone --recursive https://github.com/evanyeung/vim.git
+git clone https://github.com/evanyeung/vim.git
+cd vim
+sh vim_install.sh
 
 # Can be installed instead of supertab
 #git clone https://github.com/Valloric/YouCompleteMe.git ./YouCompleteMe # NEED TO RUN install.sh

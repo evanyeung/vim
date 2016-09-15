@@ -11,8 +11,11 @@ set t_Co=256
 set background=dark
 "colorscheme solarized
 "colorscheme Tomorrow-Night-Eighties
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-ocean
+"colorscheme base16-ocean
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
 
 " set leader to something easy to hit
 let mapleader=';'
@@ -40,9 +43,9 @@ nmap <leader>w :set list!<CR> " toggle whitespace easily
 let &colorcolumn="81" " highlight 81 char col
 
 " tab
-set tabstop=4     " sets the width of the tab to 4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2     " sets the width of the tab to 2
+set shiftwidth=2
+set softtabstop=2
 set smarttab      " use spaces instead of tabs at beginning of line
 set expandtab     " use spaces instead of tabs
 " toggle expandtab
@@ -58,6 +61,11 @@ nmap <leader>l :bn<CR>
 " use plugin to not exit program when close buffer
 nmap <leader>d <Plug>Kwbd
 
+" close quickfix
+nmap <leader>q :ccl<CR>
+" open quickfix by default after grep (useful for :Glog)
+autocmd QuickFixCmdPost *grep* cwindow
+
 " split movement
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -67,18 +75,13 @@ nnoremap <C-H> <C-W><C-H>
 " save and repeat last command (useful for running scripts)
 nmap <leader>r :w<CR>@:
 
-" NERDTree settings
-let NERDTreeQuitOnOpen = 0
-let g:NERDTreeWinSize = 20
-command NT NERDTree
-map <Leader>n <plug>NERDTreeMirrorToggle<CR>
-
 " airline settings
 set laststatus=2
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='base16'
 set ttimeoutlen=50
 
 " syntastic
@@ -86,7 +89,7 @@ let g:syntastic_mode_map = { 'mode': 'passive',
     \ 'active_filetypes': ['javascript', 'css'],
     \ 'passive_filetypes': ['html', 'python'] }
 
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_python_checkers = ['pylint']
 
@@ -108,22 +111,22 @@ let g:ctrlp_user_command = 'ag %s -i -l --nocolor --nogroup --hidden --follow
       \ --ignore "**/*.pyc"
       \ -g ""'
 let g:ctrlp_use_caching = 0 " ag is fast enough
+" use pymatcher
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch'  }
 " ctags with ctrlp
 nnoremap <leader>. :CtrlPTag<cr>
 
-" tagbar
-nmap <leader>m :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
+" nerdcommentor
+let g:NERDSpaceDelims = 1
+
+" ack
+cabbrev ag Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'vim-snippets/UltiSnips']
-
-" Easymotion
-nmap f <Plug>(easymotion-prefix)
-set tabstop=4      " sets the width of the tab to 4
-
-" vim-markdown
-let g:vim_markdown_folding_disabled=1
 
 " Pencil
 let g:pencil#wrapModeDefault = 'soft'
