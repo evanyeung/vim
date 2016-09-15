@@ -1,4 +1,5 @@
 #! /bin/bash
+mkdir bundle
 cd bundle
 
 # general
