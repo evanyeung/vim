@@ -17,9 +17,11 @@ git clone https://github.com/bling/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/honza/vim-snippets.git
+git clone https://github.com/vimwiki/vimwiki.git
 
 # language specific
 git clone https://github.com/mxw/vim-jsx.git
+git clone https://github.com/flowtype/vim-flow.git
 git clone https://github.com/reedes/vim-pencil.git
 git clone https://github.com/digitaltoad/vim-pug.git
 git clone https://github.com/derekwyatt/vim-scala.git

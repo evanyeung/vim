@@ -26,6 +26,8 @@ set noswapfile
 
 " map jk to escape in insert mode
 imap jk <esc>
+" use space for commands
+nnoremap <space> :
 
 " basic setup
 set number      " show line numbers
@@ -40,7 +42,7 @@ set incsearch   " move cursor to next string while typing in search
 set list
 set listchars=trail:~,tab:>~
 nmap <leader>w :set list!<CR> " toggle whitespace easily
-let &colorcolumn="81" " highlight 81 char col
+let &colorcolumn="121" " highlight 81 char col
 
 " tab
 set tabstop=2     " sets the width of the tab to 2
@@ -53,7 +55,7 @@ nmap <leader>t :set expandtab!<CR>
 
 " folding
 set foldmethod=indent
-nnoremap <space> za
+nmap <leader><space> za
 
 " buffer mapping
 nmap <leader>h :bp<CR>
@@ -120,7 +122,7 @@ nnoremap <leader>. :CtrlPTag<cr>
 let g:NERDSpaceDelims = 1
 
 " ack
-cabbrev ag Ack
+cabbrev ag Ack!
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
@@ -134,4 +136,6 @@ augroup pencil
     autocmd!
     autocmd FileType markdown,mkd call pencil#init()
     autocmd FileType text         call pencil#init()
+    autocmd FileType vimwiki      call pencil#init()
 augroup END
+
