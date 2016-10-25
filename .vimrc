@@ -139,3 +139,6 @@ augroup pencil
     autocmd FileType vimwiki      call pencil#init()
 augroup END
 
+" vimwiki
+let g:vimwiki_list = [{'path': '~/Dropbox/notes'}]
+
